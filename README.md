@@ -3,11 +3,23 @@
 ## Installation
 
 * Copy the bootstrap-less folder into one of your yeoman's generators folder
+work fine with your yeoman's installation folder : 
+`[yeoman_installation_folder]/node_modules/yeoman-generators/lib/generators`
 
-* Install [grunt-recess] in your working directory
-`npm install grunt-recess`
+* create a new project folder
+  ```sh
+  $ mkdir project-x
+  $ cd project-x
+  ``
 
-## Usage
+* Install [grunt-recess](https://github.com/sindresorhus/grunt-recess) in your project directory
+  ```sh
+  $ npm install grunt-recess
+  ```
 
-Just init your project with the new yeoman generator
-`yeoman init bootstrap-less`
+* init your project with the new yeoman generator
+  ```sh
+  $ yeoman init bootstrap-less
+    ```
+
+* done
