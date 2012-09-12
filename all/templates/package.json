@@ -1,0 +1,10 @@
+{
+  "author": "@tomalebeau",
+  "name": "Twitter Bootstrap + LESS",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~1.8.0",
+    "modernizr": "~2.6.1"
+    },
+  "devDependencies": {}
+}
