@@ -1,6 +1,6 @@
 
 var util = require('util'),
-  yeoman = require('yeoman');
+  yeoman = require('/usr/local/lib/node_modules/yeoman/yeoman');
 
 
 module.exports = Generator;
@@ -12,7 +12,7 @@ function Generator() {
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.main = function main() {
-  this.write('app/css/main.css', "/* Will be compiled down to a single stylesheet with your less files */");
+  this.write('app/css/style.css', "/* Will be compiled down to a single stylesheet with your less files */");
   this.directory('.', '.');
 };
 

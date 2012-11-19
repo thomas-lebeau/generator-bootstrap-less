@@ -8,4 +8,5 @@ Example:
       - HTML5 boilerplate
       - Twitter Bootstrap with LESS
       - jQuery
-      - Modernizr.js
+      - Modernizr
+      - Respond.js
