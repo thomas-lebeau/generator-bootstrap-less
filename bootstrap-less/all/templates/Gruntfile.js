@@ -27,8 +27,8 @@ module.exports = function(grunt) {
     // compile .less to .css using Recess
     recess: {
       dist: {
-        src: 'app/less/main.less',
-        dest: 'app/css/main.css',
+        src: 'app/less/style.less',
+        dest: 'app/css/style.css',
         options: {
           compile: true
         }
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 
     // concat css/**/*.css files, inline @import, output a single minified css
     css: {
-      'css/main.css': ['css/**/*.css']
+      'css/style.css': ['css/**/*.css']
     },
 
     // renames JS/CSS to prepend a hash of their contents for easier
