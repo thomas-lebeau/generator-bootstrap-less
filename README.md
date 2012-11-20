@@ -41,7 +41,7 @@ Bootstrap-less need to use [grunt-recess](https://github.com/sindresorhus/grunt-
 
 ## Author
 
-** Thomas Lebeau **
+*Thomas Lebeau*
 
 * [http://thomaslebeau.me](http://thomaslebeau.me)
 * [@tomalebeau](http://twitter.com/tomalebeau)
