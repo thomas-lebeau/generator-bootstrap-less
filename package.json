@@ -1,16 +1,19 @@
 {
-    "name": "yeoman-bootstrap-less",
-    "description": "Yeoman generator fo twitter bootstrap less",
-    "version": "1.0.2",
-    "homepage": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less",
-    "author": "Thomas Lebeau <thomas@thomaslebeau.me> (http://thomaslebeau.me",
-    "keywords": [
-        "bootstrap",
-        "less",
-        "yeoman",
-        "generator"
-    ],
-    "scripts": {
-        "install": "python install.py"
-    }
+  "name": "yeoman-bootstrap-less",
+  "description": "Yeoman generator fo twitter bootstrap less",
+  "version": "1.0.2",
+  "homepage": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less",
+  "author": "Thomas Lebeau <thomas@thomaslebeau.me> (http://thomaslebeau.me",
+  "keywords": [
+    "bootstrap",
+    "less",
+    "yeoman",
+    "generator"
+  ],
+  "dependencies": {
+    "grunt-recess": ">=0.1.3"
+  },
+  "scripts": {
+    "install": "python install.py"
+  }
 }
