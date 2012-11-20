@@ -4,7 +4,7 @@ Generator for [Yeoman](http://yeoman.io/) to init a project with the Less versio
 
 ## Installation
 
-`$ sudo npm install -g git://github.com/Thomas-Lebeau/yeoman-bootstrap-less.git`
+`$ sudo npm install -g yeoman-bootstrap-less`
 
 This will install the generator globally so you will be able to use it everywhere.
 
