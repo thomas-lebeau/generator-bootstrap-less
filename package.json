@@ -1,0 +1,27 @@
+{
+    "name": "Bootstrap-less"
+  , "description": "Yeoman generator fo twitter bootstrap less"
+  , "version": "1.0.2"
+  , "keywords": ["bootstrap", "less", "yeoman", "generator"]
+  , "homepage": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less/"
+  ,"author":{
+     "name": "Thomas Lebeau"
+    ,"email": "thomas@thomaslebeau.me"
+    ,"url": "http://thomaslebeau.me"
+  }
+  , "repository": {
+      "type": "git"
+    , "url": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less.git"
+  }
+  , "licenses": [
+    {
+        "type": "Apache-2.0"
+      , "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ]
+  , "dependencies": {
+  }
+  , "scripts": {
+    "install": "python install.py"
+  }
+}
