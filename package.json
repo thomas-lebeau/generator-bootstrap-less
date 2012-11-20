@@ -10,9 +10,6 @@
     "yeoman",
     "generator"
   ],
-  "dependencies": {
-    "grunt-recess": ">=0.1.3"
-  },
   "scripts": {
     "install": "python install.py"
   }
