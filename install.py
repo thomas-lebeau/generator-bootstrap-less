@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Script to install the generator.
-# I am a novice in python so it's certainly not perfect. If you know a way to improve it, feel free to fork it
+# Copied from https://github.com/romainberger/yeoman-wordpress/
 
 generatorPath = '/usr/local/lib/node_modules/yeoman/node_modules/yeoman-generators/lib/generators'
 currentDir = os.path.dirname(os.path.abspath(__file__))
