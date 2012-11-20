@@ -8,19 +8,14 @@ Generator for [Yeoman](http://yeoman.io/) to init a project with the Less versio
 
 This will install the generator globally so you will be able to use it everywhere.
 
-You may need to re-install the generator every time you update Yeoman.
-
-If the install script failed, here is how to install it manually:
-
-  * `$ cd /usr/local/lib/node_modules/yeoman/node_modules/yeoman-generators/lib/generators`
-  * `$ git clone git://github.com/Thomas-Lebeau/yeoman-bootstrap-less.git bootstrap-less` (you may need to run this with `sudo`)
+*You may need to re-install the generator every time you update Yeoman.*
 
 #### Uninstallation
 
   Here is how to uninstall the generator
 
   * `$ cd /usr/local/lib/node_modules/yeoman/node_modules/yeoman-generators/lib/generators`
-  * `$ rm -rf bootstrap-less/`
+  * `$ sudo rm -rf bootstrap-less/`
 
 ## Usage
 
