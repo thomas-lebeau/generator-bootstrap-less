@@ -5,8 +5,38 @@ Example:
     yeoman init bootstrap-less
 
     This will create:
-      - HTML5 boilerplate
-      - Twitter Bootstrap with LESS
-      - jQuery
-      - Modernizr
-      - Respond.js
+      .
+      |-- app
+      |   |-- style.css
+      |   |-- img
+      |   |   |-- glyphicons-halflings.png
+      |   |   |-- glyphicons-halflings-white.png
+      |   |
+      |   |-- js
+      |   |   |-- script.js
+      |   |   |-- vendor
+      |   |       |-- bootstrap
+      |   |       |   |-- // bootstrap js files
+      |   |       |   |-- ...
+      |   |       |
+      |   |       |-- jquery.min.js
+      |   |       |-- modernizr.min.js
+      |   |
+      |   |-- less
+      |   |   |-- bootstrap
+      |   |   |   |-- // bootstrap less
+      |   |   |   |-- ...
+      |   |   |
+      |   |   |-- style.less
+      |   |
+      |   |-- .htaccess
+      |   |-- 404.html
+      |   |-- favicon.ico
+      |   |-- index.html
+      |   |-- robots.txt
+      |
+      |-- .gitignore
+      |-- .gitattributes
+      |-- .jshintrc
+      |-- Gruntfile.js
+      |-- package.json
