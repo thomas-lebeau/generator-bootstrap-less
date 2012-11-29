@@ -29,3 +29,10 @@ Generator.prototype.fetchBootstrap = function fetchBootstrap() {
     cb();
   });
 };
+
+Generator.prototype.endGenerator = function endGenerator() {
+  console.log('');
+  console.log('Looks like we\'re done!');
+  console.log('Just don\'t forget to run \"npm install grunt-recess\"');
+  console.log('');
+}
