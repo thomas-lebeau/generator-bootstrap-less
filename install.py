@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 
 # Script to install the generator.
@@ -28,7 +29,7 @@ yeomanBinaryPath = yeomanInstalled = which('yeoman')
 if not yeomanInstalled:
     print 'It seems that Yeoman is not installed.'
     print 'If you have trouble installing the generator please refer to the install instructions in the Readme.'
-    os.exit()
+    sys.exit(1)
 
 yeomanPrefix = os.path.normpath(os.path.join(yeomanBinaryPath, '../../'))
 generatorPath = os.path.join(yeomanPrefix, 'lib/node_modules/yeoman/node_modules/yeoman-generators/lib/generators')
