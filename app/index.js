@@ -27,7 +27,7 @@ var BootstrapLessGenerator = module.exports = function BootstrapLessGenerator(ar
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
-util.inherits(BootstrapLessGenerator, yeoman.generators.NamedBase);
+util.inherits(BootstrapLessGenerator, yeoman.generators.Base);
 
 BootstrapLessGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
