@@ -1,4 +1,0 @@
-/**
- * Custom Js script
- *
- */
