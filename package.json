@@ -1,24 +1,42 @@
 {
-  "name": "yeoman-bootstrap-less",
+  "name": "generator-bootstrap-less",
+  "version": "2.0.0",
   "description": "Yeoman generator fo twitter bootstrap less",
-  "version": "1.0.5",
-  "homepage": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less",
-  "author": "Thomas Lebeau <thomas@thomaslebeau.me> (http://thomaslebeau.me/)",
   "keywords": [
-    "bootstrap",
+    "yeoman-generator",
     "less",
     "yeoman",
-    "generator"
+    "generator",
+    "font-awesome"
+
   ],
+  "homepage": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less",
+  "bugs": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less/issues",
+  "author": {
+    "name": "Thomas Lebeau",
+    "email": "thomas@elebeau.io",
+    "url": "http://lebeau.io"
+  },
+  "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less.git"
   },
-  "bugs": {
-    "url": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less/issues",
-    "email": "thomas@thomaslebeau.me"
-  },
   "scripts": {
-    "install": "python install.py"
-  }
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.10.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
 }
