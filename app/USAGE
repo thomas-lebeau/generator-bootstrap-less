@@ -1,0 +1,16 @@
+Description:
+    Creates a new basic front-end web application with less version of Bootstrap.
+
+Options:
+    FontAwesome: Include the icon webfont FontAwesome
+    RequireJS: Add support for AMD-loading via RequireJS
+
+Example:
+    yo bootstrap-less
+
+    This will create:
+        Gruntfile.js: Configuration for the task runner.
+        bower.json: Front-end packages installed by bower.
+        package.json: Development packages installed by npm.
+
+        app/: Your application files.
