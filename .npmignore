@@ -1,0 +1,7 @@
+.editorconfig
+.gitattributes
+.gitignore
+.jshintrc
+.npmignore
+CHANGELOG.md
+test/
