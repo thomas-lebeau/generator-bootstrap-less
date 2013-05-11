@@ -24,5 +24,5 @@ The improvments are:
 ## Author
 *Thomas Lebeau*
 
-* [http://thomaslebeau.me](http://lebeau.io)
+* [http://lebeau.io](http://lebeau.io)
 * [@tomalebeau](http://twitter.com/tomalebeau)
