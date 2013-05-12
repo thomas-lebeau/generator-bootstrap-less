@@ -1,6 +1,7 @@
-### 2.0.0 (11 May, 2013)
+### 2.0.1 (12 May, 2013)
 
 * Add a .npmignore
+* Better readme
 * Various bugfixes
 
 ### 2.0.0 (11 May, 2013)

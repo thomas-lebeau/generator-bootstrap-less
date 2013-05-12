@@ -204,18 +204,18 @@ module.exports = function (grunt) {
             '.htaccess'
           ]
         }]
-      }<% if (fontawesome) { %>,
+      },
       server: {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%%= yeoman.app %>/bower_components/font-awesome/',
-          dest: '<%%= yeoman.app %>',
-          src: [
-            'font/*'
-          ]
+          cwd: '<%%= yeoman.app %>',<% if (fontawesome) { %>
+          dest: '<%%= yeoman.app %>/font/',
+          src: ['bower_components/font-awesome/font/*']<% } else { %>
+          dest: '<%%= yeoman.app %>/images/',
+          src: ['bower_components/bootstrap/img/*']<% } %>
         }]
-      }<% } %>
+      }
     },
     bower: {
       all: {
@@ -233,8 +233,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'recess',<% if (fontawesome) { %>
-      'copy:server',<% } %>
+      'recess',
+      'copy:server',
       'livereload-start',
       'connect:livereload',
       'open',
@@ -245,6 +245,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'recess',
+    'copy:server',
     'connect:test',<% if (testFramework === 'mocha') { %>
     'mocha'<% } else if (testFramework === 'jasmine') { %>
     'jasmine'<% } %>
@@ -253,6 +254,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'recess',
+    'copy:server',
     'useminPrepare',
     'imagemin',
     'htmlmin',
