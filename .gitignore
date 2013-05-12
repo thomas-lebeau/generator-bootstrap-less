@@ -1,2 +1,8 @@
 node_modules/
 temp/
+
+###SublimeText###
+
+# SublimeText project files
+/*.sublime-project
+*.sublime-workspace
