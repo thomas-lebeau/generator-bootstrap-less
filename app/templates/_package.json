@@ -17,7 +17,7 @@
     "grunt-contrib-jasmine": "~0.4.2",<% } %>
     "grunt-rev": "~0.1.0",
     "grunt-usemin": "~0.1.10",
-    "grunt-regarde": "~0.1.1",<% } if (testFramework === 'mocha') {  %>
+    "grunt-regarde": "~0.1.1",<% if (testFramework === 'mocha') {  %>
     "grunt-mocha": "~0.3.0",<% } %>
     "grunt-open": "~0.2.0",
     "grunt-recess": "~0.3.1",
