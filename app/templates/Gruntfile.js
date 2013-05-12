@@ -26,7 +26,7 @@ module.exports = function (grunt) {
     yeoman: yeomanConfig,
     watch: {
       recess: {
-        files: ['<%%= yeoman.app %>/styles/**/*.less'],
+        files: ['<%%= yeoman.app %>/styles/{,*/}*.less'],
         tasks: ['recess']
       },
       livereload: {
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
         '!<%%= yeoman.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
-    },
+    },<% if (testFramework === 'mocha') { %>
     mocha: {
       all: {
         options: {
@@ -103,7 +103,15 @@ module.exports = function (grunt) {
           urls: ['http://localhost:<%%= connect.options.port %>/index.html']
         }
       }
-    },
+    },<% } else if (testFramework === 'jasmine') { %>
+    jasmine: {
+      all: {
+        /*src: '',*/
+        options: {
+          specs: 'test/spec/{,*/}*.js'
+        }
+      }
+    },<% } %>
     recess: {
       dist: {
         options: {
@@ -237,9 +245,10 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'recess',
-    'connect:test',
-    'mocha'
-  ]);
+    'connect:test',<% if (testFramework === 'mocha') { %>
+    'mocha'<% } else if (testFramework === 'jasmine') { %>
+    'jasmine'<% } %>
+]);
 
   grunt.registerTask('build', [
     'clean:dist',
