@@ -3,6 +3,7 @@
 
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
+var assert  = require('assert');
 
 
 describe('bootstrap-less generator', function () {
