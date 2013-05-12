@@ -1,4 +1,4 @@
-# Generator Bootstrap Less
+# Generator Bootstrap Less [![Build Status](https://travis-ci.org/Thomas-Lebeau/yeoman-bootstrap-less.png?branch=master)](https://travis-ci.org/Thomas-Lebeau/yeoman-bootstrap-less)
 A Generator for Yeoman to work with the Less version of Twitter Bootstrap
 
 
