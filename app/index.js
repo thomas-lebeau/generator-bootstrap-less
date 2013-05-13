@@ -107,11 +107,11 @@ BootstrapLessGenerator.prototype.mainStylesheet = function mainStylesheet() {
   var html = '@import "../bower_components/bootstrap/less/bootstrap.less";\n@import "../bower_components/bootstrap/less/responsive.less"; // Don\'t forget to comment lines 22 to remove the second import call to **mixin.less**\n\n';
 
   if (this.fontawesome) {
-    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n\n';
+    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts";\n';
   } else {
     html = html + '@iconSpritePath: "../images/glyphicons-halflings.png";\n@iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";\n\n';
   }
-  html = html + 'hero-unit {\n  margin: 50px auto 0 auto;\n}';
+  html = html + '.hero-unit {\n  margin: 50px auto 0 auto;\n}';
   this.write('app/styles/main.less', html);
 };
 

@@ -1,3 +1,7 @@
+### 2.0.2 (13 May, 2013)
+
+* Various change to match generator-webapp last updates
+
 ### 2.0.1 (12 May, 2013)
 
 * Add a .npmignore
