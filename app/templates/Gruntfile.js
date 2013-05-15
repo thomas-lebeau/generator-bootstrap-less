@@ -281,7 +281,7 @@ module.exports = function (grunt) {
     'connect:test',<% if (testFramework === 'mocha') { %>
     'mocha'<% } else if (testFramework === 'jasmine') { %>
     'jasmine'<% } %>
-]);
+  ]);
 
   grunt.registerTask('build', [
     'clean:dist',
