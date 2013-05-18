@@ -1,17 +1,18 @@
 {
   "name": "generator-bootstrap-less",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Yeoman generator fo twitter bootstrap less",
   "keywords": [
     "yeoman-generator",
     "less",
     "yeoman",
     "generator",
+    "bootsrap",
+    "twitter",
     "font-awesome"
-
   ],
-  "homepage": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less",
-  "bugs": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less/issues",
+  "homepage": "https://github.com/Thomas-Lebeau/generator-bootstrap-less",
+  "bugs": "https://github.com/Thomas-Lebeau/generator-bootstrap-less/issues",
   "author": {
     "name": "Thomas Lebeau",
     "email": "thomas@elebeau.io",
@@ -20,7 +21,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Thomas-Lebeau/yeoman-bootstrap-less.git"
+    "url": "https://github.com/Thomas-Lebeau/generator-bootstrap-less.git"
   },
   "scripts": {
     "test": "mocha"

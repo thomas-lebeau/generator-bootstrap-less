@@ -1,3 +1,8 @@
+### 2.0.3 (18 May, 2013)
+
+* Rename github repository
+* Fix indent and typos
+
 ### 2.0.2 (13 May, 2013)
 
 * Various change to match generator-webapp last updates
