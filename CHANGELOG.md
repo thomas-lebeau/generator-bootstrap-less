@@ -1,3 +1,7 @@
+### 2.0.4 (01 August, 2013)
+
+* Add support for coffeescript
+
 ### 2.0.3 (18 May, 2013)
 
 * Rename github repository

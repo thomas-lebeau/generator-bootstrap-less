@@ -25,6 +25,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
+      coffee: {
+        files: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee'],
+        tasks: ['coffee']
+      },
       recess: {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.less'],
         tasks: ['recess']
@@ -121,6 +125,17 @@ module.exports = function (grunt) {
         }
       }
     },<% } %>
+    coffee: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%%= yeoman.app %>/scripts',
+          src: '{,*/}*.coffee',
+          dest: '<%%= yeoman.app %>/scripts',
+          ext: '.js'
+        }]
+      }
+    },
     recess: {
       dist: {
         options: {
@@ -248,6 +263,7 @@ module.exports = function (grunt) {
     },
     concurrent: {
       dist: [
+        'coffee',
         'recess',
         'imagemin',
         'svgmin',
@@ -265,6 +281,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'coffee',
       'recess',
       'copy:server',
       'livereload-start',
@@ -276,6 +293,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'coffee',
     'recess',
     'copy:server',
     'connect:test',<% if (testFramework === 'mocha') { %>
