@@ -1,6 +1,6 @@
 {
   "name": "generator-bootstrap-less",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "Yeoman generator fo twitter bootstrap less",
   "keywords": [
     "yeoman-generator",

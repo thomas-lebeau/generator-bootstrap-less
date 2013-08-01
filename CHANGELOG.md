@@ -1,3 +1,7 @@
+### 3.0.0 (01 August, 2013)
+
+* Update to Bootstrap 3
+
 ### 2.0.4 (01 August, 2013)
 
 * Add support for coffeescript

@@ -2,8 +2,8 @@
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap": "~2.3.0",<% if (fontawesome) { %>
-    "font-awesome": "~3.0.2",<% } %>
+    "bootstrap": "~3.0.0-rc1",<% if (fontawesome) { %>
+    "font-awesome": "~3.2.1",<% } %>
     "modernizr": "~2.6.2",
     "jquery": "~1.9.1"
   },
