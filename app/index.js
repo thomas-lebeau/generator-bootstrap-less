@@ -128,7 +128,8 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
 
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/main.js', [
     'bower_components/jquery/jquery.js',
-    'scripts/main.js'
+    'scripts/main.js',
+    'scripts/hello.js'
   ]);
 
 
@@ -156,6 +157,7 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
   }
 
   this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';
+  this.mainCoffeeFile = 'console.log "\'Allo from CoffeeScript!"';
 
   // iterate over defaults and create content string
   defaults.forEach(function (el) {
@@ -181,5 +183,6 @@ BootstrapLessGenerator.prototype.app = function app() {
   this.mkdir('app/styles');
   this.mkdir('app/images');
   this.write('app/index.html', this.indexFile);
+  this.write('app/scripts/hello.coffee', this.mainCoffeeFile);
   this.write('app/scripts/main.js', this.mainJsFile);
 };
