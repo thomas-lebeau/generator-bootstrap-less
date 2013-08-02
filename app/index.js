@@ -47,24 +47,18 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
   console.log(welcome);
 
   var prompts = [{
+    type: 'confirm',
     name: 'fontawesome',
-    message: 'Would you like to use FontAwesome?',
-    default: 'Y/n',
-    warning: 'Yes: Enabling this will be totally awesome!'
+    message: 'Would you like to use FontAwesome?'
   }, {
+    type: 'confirm',
     name: 'jsBootstrap',
-    message: 'Would you like to use Bootstrap Javascript files?',
-    default: 'Y/n',
-    warning: 'Yes: Enabling this will be totally awesome!'
+    message: 'Would you like to use Bootstrap Javascript files?'
   }];
 
-  this.prompt(prompts, function (err, props) {
-    if (err) {
-      return this.emit('error', err);
-    }
-
-    this.fontawesome = (/y/i).test(props.fontawesome);
-    this.jsBootstrap = (/y/i).test(props.jsBootstrap);
+  this.prompt(prompts, function (props) {
+    this.fontawesome = props.fontawesome;
+    this.jsBootstrap = props.jsBootstrap;
 
     cb();
   }.bind(this));
