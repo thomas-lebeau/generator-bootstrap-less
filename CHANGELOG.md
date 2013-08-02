@@ -1,3 +1,8 @@
+### 3.0.1 (02 August, 2013)
+
+* Add support for Glyphicons
+* Uptade to latest generator-webapp changes
+
 ### 3.0.0 (01 August, 2013)
 
 * Update to Bootstrap 3
