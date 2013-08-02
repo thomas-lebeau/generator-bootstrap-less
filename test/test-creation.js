@@ -42,8 +42,7 @@ describe('bootstrap-less generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'fontawesome': 'Y',
-      'jsBootstrap': 'Y'
+      features: ['jsBootstrap', 'fontawesome']
     });
 
     this.app.options['skip-install'] = true;

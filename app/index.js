@@ -33,32 +33,27 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
-  var welcome =
-  '\n     _-----_' +
-  '\n    |       |' +
-  '\n    |' + '--(o)--'.red + '|   .--------------------------.' +
-  '\n   `---------´  |    ' + 'Welcome to Yeoman,'.yellow.bold + '    |' +
-  '\n    ' + '( '.yellow + '_' + '´U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow.bold + '  |' +
-  '\n    /___A___\\   \'__________________________\'' +
-  '\n     |  ~  |'.yellow +
-  '\n   __' + '\'.___.\''.yellow + '__' +
-  '\n ´   ' + '`  |'.red + '° ' + '´ Y'.red + ' `\n';
-
-  console.log(welcome);
+  console.log(this.yeoman);
 
   var prompts = [{
-    type: 'confirm',
-    name: 'fontawesome',
-    message: 'Would you like to use FontAwesome?'
-  }, {
-    type: 'confirm',
-    name: 'jsBootstrap',
-    message: 'Would you like to use Bootstrap Javascript files?'
+    type: 'checkbox',
+    name: 'features',
+    message: 'What more would you like?',
+    choices: [{
+      name: 'Bootstrap Javascript files',
+      value: 'jsBootstrap',
+      checked: true
+    }, {
+      name: 'FontAwesome',
+      value: 'fontawesome',
+      checked: false
+    }]
   }];
 
-  this.prompt(prompts, function (props) {
-    this.fontawesome = props.fontawesome;
-    this.jsBootstrap = props.jsBootstrap;
+  this.prompt(prompts, function (answers) {
+    var features = answers.features;
+    this.fontawesome = features.indexOf('fontawesome') !== -1;
+    this.jsBootstrap = features.indexOf('jsBootstrap') !== -1;
 
     cb();
   }.bind(this));
@@ -98,13 +93,12 @@ BootstrapLessGenerator.prototype.h5bp = function h5bp() {
 };
 
 BootstrapLessGenerator.prototype.mainStylesheet = function mainStylesheet() {
-  var html = '@import "../bower_components/bootstrap/less/bootstrap.less";';
+  var html = '@import "../bower_components/bootstrap/less/bootstrap.less";\n\n';
 
   if (this.fontawesome) {
-    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts";\n';
-  } else {
-    html = html + '@iconSpritePath: "../images/glyphicons-halflings.png";\n@iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";\n\n';
+    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts";\n\n';
   }
+  html = html + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
   html = html + '.jumbotron {\n  margin: 50px auto 0 auto;\n}';
   this.write('app/styles/main.less', html);
 };

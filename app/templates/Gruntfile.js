@@ -249,14 +249,11 @@ module.exports = function (grunt) {
         }]
       },
       server: {
-        files: [{
+        files: [{<% if (fontawesome) { %>
           expand: true,
-          dot: true,<% if (fontawesome) { %>
+          dot: true,
           cwd: '<%%= yeoman.app %>/bower_components/font-awesome/font/',
           dest: '<%%= yeoman.app %>/fonts/',
-          src: ['*']<% } else { %>
-          cwd: '<%%= yeoman.app %>/bower_components/bootstrap/img/',
-          dest: '<%%= yeoman.app %>/images/',
           src: ['*']<% } %>
         }]
       }
