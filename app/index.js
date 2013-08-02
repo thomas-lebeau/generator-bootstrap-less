@@ -44,6 +44,10 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
       value: 'jsBootstrap',
       checked: true
     }, {
+      name: 'Bootstrap-Glyphicons',
+      value: 'glyphicons',
+      checked: true
+    }, {
       name: 'FontAwesome',
       value: 'fontawesome',
       checked: false
@@ -52,8 +56,9 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (answers) {
     var features = answers.features;
-    this.fontawesome = features.indexOf('fontawesome') !== -1;
     this.jsBootstrap = features.indexOf('jsBootstrap') !== -1;
+    this.glyphicons = features.indexOf('glyphicons') !== -1;
+    this.fontawesome = features.indexOf('fontawesome') !== -1;
 
     cb();
   }.bind(this));
@@ -95,9 +100,14 @@ BootstrapLessGenerator.prototype.h5bp = function h5bp() {
 BootstrapLessGenerator.prototype.mainStylesheet = function mainStylesheet() {
   var html = '@import "../bower_components/bootstrap/less/bootstrap.less";\n\n';
 
+  if (this.glyphicons) {
+    html = html + '@import "../bower_components/bootstrap-glyphicons/less/bootstrap-glyphicons.less";\n\n';
+  }
+
   if (this.fontawesome) {
     html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts";\n\n';
   }
+
   html = html + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
   html = html + '.jumbotron {\n  margin: 50px auto 0 auto;\n}';
   this.write('app/styles/main.less', html);
@@ -137,6 +147,10 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
       'bower_components/bootstrap/js/collapse.js',
       'bower_components/bootstrap/js/tab.js'
     ]);
+  }
+
+  if (this.glyphicons) {
+    defaults.push('Bootstrap-Glyphicons <i class="glyphicon glyphicon-ok"></i>');
   }
 
   if (this.fontawesome) {
