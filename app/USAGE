@@ -2,8 +2,8 @@ Description:
     Creates a new basic front-end web application with less version of Bootstrap.
 
 Options:
+    Bootstrap Javascript files: Include the Bootstrap Javascript files
     FontAwesome: Include the icon webfont FontAwesome
-    RequireJS: Add support for AMD-loading via RequireJS
 
 Example:
     yo bootstrap-less
