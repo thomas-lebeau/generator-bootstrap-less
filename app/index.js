@@ -33,38 +33,32 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
-  var welcome =
-  '\n     _-----_' +
-  '\n    |       |' +
-  '\n    |' + '--(o)--'.red + '|   .--------------------------.' +
-  '\n   `---------´  |    ' + 'Welcome to Yeoman,'.yellow.bold + '    |' +
-  '\n    ' + '( '.yellow + '_' + '´U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow.bold + '  |' +
-  '\n    /___A___\\   \'__________________________\'' +
-  '\n     |  ~  |'.yellow +
-  '\n   __' + '\'.___.\''.yellow + '__' +
-  '\n ´   ' + '`  |'.red + '° ' + '´ Y'.red + ' `\n';
-
-  console.log(welcome);
+  console.log(this.yeoman);
 
   var prompts = [{
-    name: 'fontawesome',
-    message: 'Would you like to use FontAwesome?',
-    default: 'Y/n',
-    warning: 'Yes: Enabling this will be totally awesome!'
-  }, {
-    name: 'jsBootstrap',
-    message: 'Would you like to use Bootstrap Javascript files?',
-    default: 'Y/n',
-    warning: 'Yes: Enabling this will be totally awesome!'
+    type: 'checkbox',
+    name: 'features',
+    message: 'What more would you like?',
+    choices: [{
+      name: 'Bootstrap Javascript files',
+      value: 'jsBootstrap',
+      checked: true
+    }, {
+      name: 'Bootstrap-Glyphicons',
+      value: 'glyphicons',
+      checked: true
+    }, {
+      name: 'FontAwesome',
+      value: 'fontawesome',
+      checked: false
+    }]
   }];
 
-  this.prompt(prompts, function (err, props) {
-    if (err) {
-      return this.emit('error', err);
-    }
-
-    this.fontawesome = (/y/i).test(props.fontawesome);
-    this.jsBootstrap = (/y/i).test(props.jsBootstrap);
+  this.prompt(prompts, function (answers) {
+    var features = answers.features;
+    this.jsBootstrap = features.indexOf('jsBootstrap') !== -1;
+    this.glyphicons = features.indexOf('glyphicons') !== -1;
+    this.fontawesome = features.indexOf('fontawesome') !== -1;
 
     cb();
   }.bind(this));
@@ -104,14 +98,18 @@ BootstrapLessGenerator.prototype.h5bp = function h5bp() {
 };
 
 BootstrapLessGenerator.prototype.mainStylesheet = function mainStylesheet() {
-  var html = '@import "../bower_components/bootstrap/less/bootstrap.less";\n@import "../bower_components/bootstrap/less/responsive.less"; // Don\'t forget to comment lines 22 to remove the second import call to **mixin.less**\n\n';
+  var html = '@import "../bower_components/bootstrap/less/bootstrap.less";\n\n';
+
+  if (this.glyphicons) {
+    html = html + '@import "../bower_components/bootstrap-glyphicons/less/bootstrap-glyphicons.less";\n\n';
+  }
 
   if (this.fontawesome) {
-    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts";\n';
-  } else {
-    html = html + '@iconSpritePath: "../images/glyphicons-halflings.png";\n@iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";\n\n';
+    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts";\n\n';
   }
-  html = html + '.hero-unit {\n  margin: 50px auto 0 auto;\n}';
+
+  html = html + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
+  html = html + '.jumbotron {\n  margin: 50px auto 0 auto;\n}';
   this.write('app/styles/main.less', html);
 };
 
@@ -120,7 +118,7 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
   var defaults = ['HTML5 Boilerplate', 'Twitter Bootstrap'];
   var contentText = [
     '    <div class="container">',
-    '      <div class="hero-unit">',
+    '      <div class="jumbotron">',
     '        <h1>\'Allo, \'Allo!</h1>',
     '        <p>You now have</p>',
     '        <ul>'
@@ -136,24 +134,27 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
   if (this.jsBootstrap) {
     // wire Twitter Bootstrap plugins
     this.indexFile = this.appendScripts(this.indexFile, 'scripts/vendor/bootstrap.js', [
-      'bower_components/bootstrap/js/bootstrap-affix.js',
-      'bower_components/bootstrap/js/bootstrap-alert.js',
-      'bower_components/bootstrap/js/bootstrap-dropdown.js',
-      'bower_components/bootstrap/js/bootstrap-tooltip.js',
-      'bower_components/bootstrap/js/bootstrap-modal.js',
-      'bower_components/bootstrap/js/bootstrap-transition.js',
-      'bower_components/bootstrap/js/bootstrap-button.js',
-      'bower_components/bootstrap/js/bootstrap-popover.js',
-      'bower_components/bootstrap/js/bootstrap-typeahead.js',
-      'bower_components/bootstrap/js/bootstrap-carousel.js',
-      'bower_components/bootstrap/js/bootstrap-scrollspy.js',
-      'bower_components/bootstrap/js/bootstrap-collapse.js',
-      'bower_components/bootstrap/js/bootstrap-tab.js'
+      'bower_components/bootstrap/js/affix.js',
+      'bower_components/bootstrap/js/alert.js',
+      'bower_components/bootstrap/js/dropdown.js',
+      'bower_components/bootstrap/js/tooltip.js',
+      'bower_components/bootstrap/js/modal.js',
+      'bower_components/bootstrap/js/transition.js',
+      'bower_components/bootstrap/js/button.js',
+      'bower_components/bootstrap/js/popover.js',
+      'bower_components/bootstrap/js/carousel.js',
+      'bower_components/bootstrap/js/scrollspy.js',
+      'bower_components/bootstrap/js/collapse.js',
+      'bower_components/bootstrap/js/tab.js'
     ]);
   }
 
+  if (this.glyphicons) {
+    defaults.push('Bootstrap-Glyphicons <i class="glyphicon glyphicon-ok"></i>');
+  }
+
   if (this.fontawesome) {
-    defaults.push('Font Awesome');
+    defaults.push('Font Awesome <i class="icon-flag"></i>');
   }
 
   this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';

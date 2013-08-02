@@ -241,7 +241,7 @@ module.exports = function (grunt) {
           cwd: '<%%= yeoman.app %>',
           dest: '<%%= yeoman.dist %>',
           src: [
-            '*.{ico,txt}',<% if (fontawesome) { %>
+            '*.{ico,png,txt}',<% if (fontawesome) { %>
             'fonts/*',<% } %>
             '.htaccess',
             'images/{,*/}*.{webp,gif}'
@@ -249,14 +249,17 @@ module.exports = function (grunt) {
         }]
       },
       server: {
-        files: [{
+        files: [{<% if (fontawesome) { %>
           expand: true,
-          dot: true,<% if (fontawesome) { %>
+          dot: true,
           cwd: '<%%= yeoman.app %>/bower_components/font-awesome/font/',
           dest: '<%%= yeoman.app %>/fonts/',
-          src: ['*']<% } else { %>
-          cwd: '<%%= yeoman.app %>/bower_components/bootstrap/img/',
-          dest: '<%%= yeoman.app %>/images/',
+          src: ['*']<% } %>
+        }, {<% if (glyphicons) { %>
+          expand: true,
+          dot: true,
+          cwd: '<%%= yeoman.app %>/bower_components/bootstrap-glyphicons/fonts/',
+          dest: '<%%= yeoman.app %>/fonts/',
           src: ['*']<% } %>
         }]
       }
