@@ -115,7 +115,7 @@ BootstrapLessGenerator.prototype.mainStylesheet = function mainStylesheet() {
 
 BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
   // prepare default content text
-  var defaults = ['HTML5 Boilerplate', 'Twitter Bootstrap'];
+  var defaults = ['HTML5 Boilerplate', 'Bootstrap'];
   var contentText = [
     '    <div class="container">',
     '      <div class="jumbotron">',
@@ -132,7 +132,7 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
 
 
   if (this.jsBootstrap) {
-    // wire Twitter Bootstrap plugins
+    // wire Bootstrap plugins
     this.indexFile = this.appendScripts(this.indexFile, 'scripts/vendor/bootstrap.js', [
       'bower_components/bootstrap/js/affix.js',
       'bower_components/bootstrap/js/alert.js',
