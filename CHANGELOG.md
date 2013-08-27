@@ -1,3 +1,8 @@
+### 3.0.1 (27 August, 2013)
+
+* Allow font files in sub-folders
+* Update to Bootstrap 3.0.0 final
+
 ### 3.0.1 (02 August, 2013)
 
 * Add support for Glyphicons
