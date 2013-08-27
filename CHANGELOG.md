@@ -1,4 +1,4 @@
-### 3.0.1 (27 August, 2013)
+### 3.0.2 (27 August, 2013)
 
 * Allow font files in sub-folders
 * Update to Bootstrap 3.0.0 final
