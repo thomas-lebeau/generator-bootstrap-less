@@ -1,14 +1,13 @@
 {
   "name": "generator-bootstrap-less",
   "version": "3.0.1",
-  "description": "Yeoman generator fo twitter bootstrap less",
+  "description": "Yeoman generator for bootstrap less",
   "keywords": [
     "yeoman-generator",
     "less",
     "yeoman",
     "generator",
     "bootsrap",
-    "twitter",
     "font-awesome",
     "glyphicons"
   ],
