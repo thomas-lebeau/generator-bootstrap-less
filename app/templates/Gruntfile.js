@@ -253,14 +253,14 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%%= yeoman.app %>/bower_components/font-awesome/font/',
-          dest: '<%%= yeoman.app %>/fonts/',
+          dest: '<%%= yeoman.app %>/fonts/font-awesome',
           src: ['*']<% } %>
-        }, {<% if (glyphicons) { %>
+        }, {
           expand: true,
           dot: true,
-          cwd: '<%%= yeoman.app %>/bower_components/bootstrap-glyphicons/fonts/',
-          dest: '<%%= yeoman.app %>/fonts/',
-          src: ['*']<% } %>
+          cwd: '<%%= yeoman.app %>/bower_components/bootstrap/fonts/',
+          dest: '<%%= yeoman.app %>/fonts/glyphicons',
+          src: ['*']
         }]
       }
     },
