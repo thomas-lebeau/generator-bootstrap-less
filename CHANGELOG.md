@@ -1,3 +1,9 @@
+### 3.1.0 (27 October, 2013)
+
+* Update fontAwesome to v4.0.0
+* Add jshint-stylish
+* Add time-grunt
+
 ### 3.0.3 (28 August, 2013)
 
 * Update yeoman-generator to 0.13.4. Fix [#21](https://github.com/Thomas-Lebeau/generator-bootstrap-less/pull/21)
