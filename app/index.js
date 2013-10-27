@@ -96,7 +96,7 @@ BootstrapLessGenerator.prototype.mainStylesheet = function mainStylesheet() {
   var html = '@import "../bower_components/bootstrap/less/bootstrap.less";\n@icon-font-path: "../fonts/glyphicons/";\n\n';
 
   if (this.fontawesome) {
-    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@FontAwesomePath: "../fonts/font-awesome";\n\n';
+    html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@fa-font-path: "../fonts/font-awesome";\n\n';
   }
 
   html = html + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
@@ -141,7 +141,7 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
   }
 
   if (this.fontawesome) {
-    defaults.push('Font Awesome <i class="icon-flag"></i>');
+    defaults.push('Font Awesome <i class="fa fa-flag"></i>');
   }
 
   this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';
