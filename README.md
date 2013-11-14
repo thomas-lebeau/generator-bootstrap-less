@@ -10,7 +10,7 @@ A Generator for Yeoman to work with the Less version of Bootstrap
 - Run `grunt` for building and `grunt serve` for preview
 
 #### Previous release:
-This version includes Bootstrap 3.0.0-rc1. If you need Bootstrap 2.3 you should install the previous version of this generator: `npm install generator-bootstrap-less@2.0.4`
+This version includes Bootstrap 3. If you need Bootstrap 2.3 you should install the previous version of this generator: `npm install generator-bootstrap-less@2.0.4`
 
 
 ## Options
