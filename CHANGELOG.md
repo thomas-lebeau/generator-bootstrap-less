@@ -1,3 +1,11 @@
+### 3.2.0 (14 Novembre, 2013)
+
+* Switch from grunt-contrib-livereload to grunt-contrib-watch
+* Switch from grunt-recess to grunt-contrib-less
+* Enable LESS sourcemap support
+* Deprecate server task, replace it by serve
+* Autoreload Gruntfile.js on changes
+
 ### 3.1.0 (27 October, 2013)
 
 * Update fontAwesome to v4.0.0
