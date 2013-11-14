@@ -26,9 +26,9 @@ module.exports = function (grunt) {
         files: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee'],
         tasks: ['coffee']
       },
-      recess: {
+      less: {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.less'],
-        tasks: ['recess']
+        tasks: ['less']
       },
       livereload: {
         options: {
@@ -126,11 +126,8 @@ module.exports = function (grunt) {
         }]
       }
     },
-    recess: {
+    less: {
       dist: {
-        options: {
-          compile: true
-        },
         files: {
           '<%%= yeoman.app %>/styles/main.css': ['<%%= yeoman.app %>/styles/main.less']
         }
@@ -257,7 +254,7 @@ module.exports = function (grunt) {
     concurrent: {
       dist: [
         'coffee',
-        'recess',
+        'less',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -273,7 +270,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'coffee',
-      'recess',
+      'less',
       'copy:server',
       'connect:livereload',
       'watch'
@@ -283,7 +280,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'coffee',
-    'recess',
+    'less',
     'copy:server',
     'connect:test',<% if (testFramework === 'mocha') { %>
     'mocha'<% } else if (testFramework === 'jasmine') { %>
