@@ -14,14 +14,24 @@ var BootstrapLessGenerator = module.exports = function BootstrapLessGenerator(ar
   if (!options['test-framework']) {
     options['test-framework'] = 'mocha';
   }
-  // resolved to mocha by default (could be switched to jasmine for instance)
-  this.hookFor('test-framework', { as: 'app' });
 
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
   this.mainJsFile = '';
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    this.invoke(this.options['test-framework'], {
+        options: {
+          'skip-message': options['skip-install-message'],
+          'skip-install': options['skip-install']
+        }
+      });
+
+    if (!this.options['skip-install']) {
+        this.installDependencies({
+          skipMessage: options['skip-install-message'],
+          skipInstall: options['skip-install']
+        });
+      }
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
