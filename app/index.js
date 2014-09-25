@@ -145,7 +145,7 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
   }
 
   this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';
-  this.mainCoffeeFile = 'console.log "\'Allo from CoffeeScript!"';
+  this.mainCoffeeFile = '### jshint white:false ###\n\n\'use strict\'\nconsole.log \'\\\'Allo from CoffeeScript!\'';
 
   // iterate over defaults and create content string
   defaults.forEach(function (el) {
