@@ -2,6 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
 
 
 var BootstrapLessGenerator = module.exports = function BootstrapLessGenerator(args, options, config) {
@@ -45,7 +46,13 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
-  console.log(this.yeoman);
+  if (!this.options['skip-welcome-message']) {
+    this.log(require('yosay')());
+    this.log(chalk.magenta(
+      'Out of the box I include HTML5 Boilerplate, Bootstrap with less, and a ' +
+      'Gruntfile.js to build your app.'
+    ));
+  }
 
   var prompts = [{
     type: 'checkbox',
