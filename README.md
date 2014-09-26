@@ -3,7 +3,7 @@
 > A Generator for Yeoman to work with the Less version of Bootstrap
 
 [![NPM version](https://badge.fury.io/js/generator-bootstrap-less.svg)](http://badge.fury.io/js/generator-bootstrap-less)
-[![Build Status](https://travis-ci.org/Thomas-Lebeau/generator-bootstrap-less.png?branch=master)](https://travis-ci.org/Thomas-Lebeau/generator-bootstrap-less)
+[![Build Status](https://travis-ci.org/Thomas-Lebeau/generator-bootstrap-less.svg?branch=master)](https://travis-ci.org/Thomas-Lebeau/generator-bootstrap-less)
 [![Dependency Status](https://david-dm.org/Thomas-Lebeau/generator-bootstrap-less.svg)](https://david-dm.org/Thomas-Lebeau/generator-bootstrap-less)
 [![devDependency Status](https://david-dm.org/Thomas-Lebeau/generator-bootstrap-less/dev-status.svg)](https://david-dm.org/Thomas-Lebeau/generator-bootstrap-less#info=devDependencies)
 [![peerDependency Status](https://david-dm.org/Thomas-Lebeau/generator-bootstrap-less/peer-status.svg)](https://david-dm.org/Thomas-Lebeau/generator-bootstrap-less#info=peerDependencies)
