@@ -251,6 +251,12 @@ module.exports = function (grunt) {
           cwd: '<%%= yeoman.app %>/bower_components/font-awesome/fonts/',
           dest: '<%%= yeoman.app %>/fonts/font-awesome',
           src: ['*']<% } %>
+        }, {<% if (respondjs) { %>
+          expand: true,
+          dot: true,
+          cwd: '<%%= yeoman.app %>/bower_components/respond/dest/respond.min.js',
+          dest: '<%%= yeoman.app %>/scripts/vendor/vendor',
+          src: ['*']<% } %>
         }, {
           expand: true,
           dot: true,

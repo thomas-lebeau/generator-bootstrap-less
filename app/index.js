@@ -67,6 +67,10 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
       name: 'FontAwesome',
       value: 'fontawesome',
       checked: false
+    }, {
+      name: 'respond.js (mediaquery polyfill for ie6-8)',
+      value: 'respondjs',
+      checked: false
     }]
   }];
 
@@ -79,6 +83,7 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
 
     this.jsBootstrap = hasFeature('jsBootstrap');
     this.fontawesome = hasFeature('fontawesome');
+    this.respondjs = hasFeature('respondjs');
 
     cb();
   }.bind(this));
@@ -167,6 +172,16 @@ BootstrapLessGenerator.prototype.writeIndex = function writeIndex() {
 
   if (this.fontawesome) {
     defaults.push('Font Awesome <i class="fa fa-flag"></i>');
+  }
+
+  if (this.respondjs) {
+    defaults.push('Respond.js');
+
+    var html = '<!--[if lt IE 9]>\n';
+    html = html + '<script src="scripts/vendor/respond.min.js"></script>\n';
+    html = html + '<![endif]-->\n';
+
+    this.indexFile = this.indexFile.replace('</head>', html + '</head>');
   }
 
   this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';

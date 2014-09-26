@@ -94,5 +94,18 @@ describe('bootstrap-less generator', function () {
       });
     });
 
+    it('creates expected Bootstrap javascript components', function (done) {
+      runGen.withOptions(options).withPrompt({features: ['respondjs']})
+      .on('end', function () {
+        assert.fileContent([
+          ['Gruntfile.js', /respond.min.js/],
+          ['bower.json', /respond/],
+          ['app/index.html', /respond.min.js/]
+        ]);
+
+        done();
+      });
+    });
+
   });
 });
