@@ -20,8 +20,9 @@ var BootstrapLessGenerator = module.exports = function BootstrapLessGenerator(ar
   this.mainJsFile = '';
 
   this.on('end', function () {
-    this.composeWith(this.options['test-framework'], {
-    // this.invoke(this.options['test-framework'], {
+    // FIXIT: using composewith prevent installDependencies to run bower correctly
+    // this.composeWith(this.options['test-framework'], {
+    this.invoke(this.options['test-framework'], {
         options: {
           'skip-message': options['skip-install-message'],
           'skip-install': options['skip-install'],
