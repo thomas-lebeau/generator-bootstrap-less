@@ -2,54 +2,97 @@
 'use strict';
 
 var path    = require('path');
-var helpers = require('yeoman-generator').test;
 var assert  = require('assert');
+var helpers = require('yeoman-generator').test;
+var assert  = require('yeoman-generator').assert;
 
 
 describe('bootstrap-less generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) {
-        return done(err);
-      }
-
-      this.app = helpers.createGenerator('bootstrap-less:app', [
-        '../../app', [
-          helpers.createDummyGenerator(),
-          'mocha:app'
-        ]
-      ]);
-      done();
-    }.bind(this));
-  });
 
   it('the generator can be required without throwing', function () {
     // not testing the actual run of generators yet
     this.app = require('../app');
   });
 
-  it('creates expected files', function (done) {
-    var expected = [
+  describe('run test', function () {
+
+    var expectedContent = [
       ['bower.json', /"name": "temp"/],
       ['package.json', /"name": "temp"/],
+      ['app/styles/main.less', /bootstrap.less/],
+    ];
+    var expected = [
+      '.editorconfig',
+      '.gitignore',
+      '.gitattributes',
+      'package.json',
+      'bower.json',
       'Gruntfile.js',
       'app/404.html',
       'app/favicon.ico',
       'app/robots.txt',
       'app/index.html',
-      'app/scripts/main.js',
-      'app/styles/main.less'
+      'app/styles/main.less',
+      'app/scripts/main.js'
+    ];
+    var fontawesomeExpectedContent = [
+      ['Gruntfile.js', /font-awesome/],
+      ['bower.json', /font-awesome/],
+      ['app/styles/main.less', /font-awesome.less/],
+      ['app/index.html', /Font Awesome/]
+    ];
+    var jsBootstrapExpectedContent = [
+      ['app/index.html', /bootstrap.js/]
     ];
 
-    helpers.mockPrompt(this.app, {
-      features: ['jsBootstrap', 'fontawesome']
+    var options = {
+      'skip-install-message': true,
+      'skip-install': true,
+      'skip-welcome-message': true,
+      'skip-message': true
+    }
+
+    var runGen;
+
+    beforeEach(function () {
+      runGen = helpers
+        .run(path.join(__dirname, '../app'))
+        .inDir(path.join(__dirname, 'temp'))
+        .withGenerators([[helpers.createDummyGenerator(), 'mocha:app']]);
     });
 
-    this.app.options['skip-install'] = true;
-    this.app.run({}, function () {
-      helpers.assertFiles(expected);
-      done();
+    it('creates expected files', function (done) {
+
+      runGen.withOptions(options).on('end', function () {
+
+        assert.file([].concat(
+          expected,
+          'app/scripts/hello.coffee'
+        ));
+        assert.fileContent(expectedContent);
+
+        assert.noFileContent([].concat(fontawesomeExpectedContent, jsBootstrapExpectedContent));
+        done();
+      });
     });
+
+    it('creates expected fontawesome components', function (done) {
+      runGen.withOptions(options).withPrompt({features: ['fontawesome']})
+      .on('end', function () {
+        assert.fileContent(fontawesomeExpectedContent);
+
+        done();
+      });
+    });
+
+    it('creates expected Bootstrap javascript components', function (done) {
+      runGen.withOptions(options).withPrompt({features: ['jsBootstrap']})
+      .on('end', function () {
+        assert.fileContent(jsBootstrapExpectedContent);
+
+        done();
+      });
+    });
+
   });
-
 });
