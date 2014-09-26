@@ -1,3 +1,11 @@
+### 3.2.1 (26 September, 2014)
+
+* Fix [#33 - grunt fails](https://github.com/Thomas-Lebeau/generator-bootstrap-less/issues/33)
+* Fix [#34 - glyphicons errors](https://github.com/Thomas-Lebeau/generator-bootstrap-less/issues/34)
+* Fix [#30 - fix grunt default task](https://github.com/Thomas-Lebeau/generator-bootstrap-less/issues/30)
+* refactor tests
+* updates dependencies
+
 ### 3.2.0 (14 Novembre, 2013)
 
 * Switch from grunt-contrib-livereload to grunt-contrib-watch
