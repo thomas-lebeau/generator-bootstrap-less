@@ -25,7 +25,9 @@
     "load-grunt-tasks": "~0.6.0",
     "matchdep": "~0.3.0",
     "time-grunt": "~1.0.0",
-    "jshint-stylish": "~1.0.0"
+    "jshint-stylish": "~1.0.0",
+    "grunt-bootlint": "^0.2.1"
+
   },
   "engines": {
     "node": ">=0.8.0"

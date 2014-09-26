@@ -101,6 +101,15 @@ module.exports = function (grunt) {
         '!<%%= yeoman.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
+    },
+    bootlint: {
+      options: {
+        stoponerror: true
+      },
+      files: [
+        '<%%= yeoman.app %>/{,*/}*.html',
+        '!<%%= yeoman.app %>/404.html'
+      ]
     },<% if (testFramework === 'mocha') { %>
     mocha: {
       all: {
@@ -297,6 +306,11 @@ module.exports = function (grunt) {
     grunt.task.run(['serve']);
   });
 
+  grunt.registerTask('lint', [
+    'jshint',
+    'bootlint'
+  ]);
+
   grunt.registerTask('test', [
     'clean:server',
     'coffee',
@@ -321,7 +335,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
+    'lint',
     'test',
     'build'
   ]);
