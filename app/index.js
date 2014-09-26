@@ -19,19 +19,21 @@ var BootstrapLessGenerator = module.exports = function BootstrapLessGenerator(ar
   this.mainJsFile = '';
 
   this.on('end', function () {
-    this.invoke(this.options['test-framework'], {
+    this.composeWith(this.options['test-framework'], {
+    // this.invoke(this.options['test-framework'], {
         options: {
           'skip-message': options['skip-install-message'],
-          'skip-install': options['skip-install']
+          'skip-install': options['skip-install'],
+          'coffee': true
         }
       });
 
     if (!this.options['skip-install']) {
-        this.installDependencies({
-          skipMessage: options['skip-install-message'],
-          skipInstall: options['skip-install']
-        });
-      }
+      this.installDependencies({
+        skipMessage: options['skip-install-message'],
+        skipInstall: options['skip-install']
+      });
+    }
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -62,8 +64,13 @@ BootstrapLessGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (answers) {
     var features = answers.features;
-    this.jsBootstrap = features.indexOf('jsBootstrap') !== -1;
-    this.fontawesome = features.indexOf('fontawesome') !== -1;
+
+    function hasFeature(feat) {
+      return features && features.indexOf(feat) !== -1;
+    }
+
+    this.jsBootstrap = hasFeature('jsBootstrap');
+    this.fontawesome = hasFeature('fontawesome');
 
     cb();
   }.bind(this));
