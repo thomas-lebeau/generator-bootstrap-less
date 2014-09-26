@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     watch: {
       all: {
         files:['test/*.js', 'app/index.js'],
-        tasks:['mocha']
+        tasks:['mochaTest']
       }
     }
   });
