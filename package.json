@@ -27,9 +27,9 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.17.6",
-    "yosay": "^1.0.0",
-    "chalk": "^0.5.1"
+    "chalk": "^1.0.0",
+    "yeoman-generator": "^0.18.9",
+    "yosay": "^1.0.0"
   },
   "peerDependencies": {
     "generator-mocha": "~0.1.6"
